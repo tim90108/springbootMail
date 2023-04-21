@@ -2,6 +2,7 @@ package com.tim.springbootmall.dao.impl;
 
 import com.tim.springbootmall.constant.ProductCategory;
 import com.tim.springbootmall.dao.ProductDao;
+import com.tim.springbootmall.dto.ProductQueryParams;
 import com.tim.springbootmall.dto.ProductRequest;
 import com.tim.springbootmall.model.Product;
 import com.tim.springbootmall.rowmapper.ProductRowMapper;
@@ -39,7 +40,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public List<Product> getProducts(ProductCategory category, String search) {
+    public List<Product> getProducts(ProductQueryParams productQueryParams) {
 //        String sql = "SELECT product_id, product_name, category, image_url, price, stock, description," +
 //                     " created_date, last_modified_date" +
 //                     "FROM product";
@@ -48,14 +49,14 @@ public class ProductDaoImpl implements ProductDao {
                      "FROM product WHERE 1=1";
         Map<String, Object> map = new HashMap<>();
 
-        if(category != null) {
+        if(productQueryParams.getCategory() != null) {
             sql = sql + " AND category = :category";
-            map.put("category", category.name());
+            map.put("category", productQueryParams.getCategory());
         }
 
-        if(search != null) {
+        if(productQueryParams.getSearch() != null) {
             sql = sql + " AND product_name LIKE :search";
-            map.put("search", "%" + search + "%");
+            map.put("search", "%" + productQueryParams.getSearch() + "%");
         }
 
         List<Product> productList = nameParameterJdbcTemplate.query(sql, map, new ProductRowMapper());
