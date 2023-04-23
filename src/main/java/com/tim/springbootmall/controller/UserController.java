@@ -1,5 +1,6 @@
 package com.tim.springbootmall.controller;
 
+import com.tim.springbootmall.dto.UserLoginRequest;
 import com.tim.springbootmall.dto.UserRegisterRequest;
 import com.tim.springbootmall.model.User;
 import com.tim.springbootmall.service.UserService;
@@ -23,5 +24,11 @@ public class UserController {
         User user = userService.getUserById(userId);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+    @PostMapping("/users/login")
+    public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest) {
+        User user = userService.login(userLoginRequest);
+
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 }

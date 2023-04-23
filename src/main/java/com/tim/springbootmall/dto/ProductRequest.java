@@ -3,8 +3,6 @@ package com.tim.springbootmall.dto;
 import com.tim.springbootmall.constant.ProductCategory;
 import jakarta.validation.constraints.NotNull;
 
-import java.util.Date;
-
 public class ProductRequest {
     @NotNull
     private String productName;
