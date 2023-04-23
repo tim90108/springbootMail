@@ -1,4 +1,4 @@
-package com.tim.springbootmall.service.ProductServiceImpl;
+package com.tim.springbootmall.service.Impl;
 
 import com.tim.springbootmall.dao.UserDao;
 import com.tim.springbootmall.dto.UserLoginRequest;
