@@ -1,18 +1,19 @@
 package com.tim.springbootmall.model;
 
 public class OrderItem {
-    private Integer orderItem;
+    private Integer orderItemId;
     private Integer orderId;
     private Integer productId;
     private Integer quantity;
     private Integer amount;
-
-    public Integer getOrderItem() {
-        return orderItem;
+    private String productName;
+    private String imageUrl;
+    public Integer getOrderItemId() {
+        return orderItemId;
     }
 
-    public void setOrderItem(Integer orderItem) {
-        this.orderItem = orderItem;
+    public void setOrderItemId(Integer orderItemId) {
+        this.orderItemId = orderItemId;
     }
 
     public Integer getOrderId() {
@@ -45,5 +46,21 @@ public class OrderItem {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
